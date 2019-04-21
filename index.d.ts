@@ -9,4 +9,5 @@ import {
   RequiredKeys,
 } from 'typelevel-ts';
 import { Param0, Param1 } from 'type-zoo';
-import { string } from 'prop-types';
+
+export function useCamera(cameraOptions: Object): [Object, Object]

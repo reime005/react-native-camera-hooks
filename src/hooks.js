@@ -1,100 +1,45 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
+import {
+  useFlash,
+  useWhiteBalance,
+  useAutoFocus,
+  useToggleFacing,
+} from './toggle.ts';
+import { initialCameraState } from './initialState.ts';
+import { useZoom, useCameraState } from './misc';
+import { takePicture } from './takePicture';
+import { recordVideo } from './recordVideo';
+import { stopRecording } from './stopRecording';
+import { pausePreview, resumePreview } from './preview';
 
-const useToggle = (initialState = false, values = []) => {
-  const [state, setState] = useState(initialState);
-
-  return [
-    state,
-    () =>
-      setState(
-        !values
-          ? _state => !_state
-          : state === values[0]
-          ? values[1]
-          : values[0],
-      ),
-  ];
-};
-
-export const useCamera = (cameraOptions = {}) => {
+export const useCamera = (cameraOptions = initialCameraState) => {
   const cameraRef = useRef(null);
-  const [type, toggleFacing] = useToggle(cameraOptions.type, ['front', 'back']);
-  const [flash, setFlash] = useState(cameraOptions.flash);
-  const [whiteBalance, setWhiteBalance] = useState(cameraOptions.whiteBalance);
-  const [autoFocus, toggleAutoFocus] = useToggle(cameraOptions.autoFocus, [
+  const [type, toggleFacing] = useToggleFacing(cameraOptions.type, [
+    'front',
+    'back',
+  ]);
+  const [flash, { setFlash, toggleFlash }] = useFlash(cameraOptions.flash);
+  const [whiteBalance, { setWhiteBalance, toggleWB }] = useWhiteBalance(
+    cameraOptions.whiteBalance,
+  );
+  const [autoFocus, toggleAutoFocus] = useAutoFocus(cameraOptions.autoFocus, [
     'on',
     'off',
   ]);
-  const [autoFocusPoint, setAutoFocusPoint] = useState(
+  const [autoFocusPoint, { setAutoFocusPoint, touchToFocus }] = useAutoFocus(
     cameraOptions.autoFocusPoint,
   );
   const [focusDepth, setFocusDepth] = useState(cameraOptions.focusDepth);
-  const [cameraState, setCameraState] = useState({});
+  const [cameraState, { setCameraState, toggleCameraState }] = useCameraState(
+    {},
+  );
   const [textBlocks, setTextBlocks] = useState([]);
   const [faces, setFaces] = useState([]);
   const [barcodes, setBarcodes] = useState([]);
   const [ratio, setRatio] = useState(cameraOptions.ratio);
   const [isRecording, setIsRecording] = useState(false);
 
-  const [zoom, setZoom] = useState(cameraOptions.zoom);
-
-  const zoomIn = () => {
-    if (zoom + 0.01 <= 1 && zoom + 0.01 >= 0) {
-      setZoom(zoom + 0.01);
-    }
-  };
-
-  const zoomOut = () => {
-    if (zoom - 0.1 <= 1 && zoom - 0.1 >= 0) {
-      setZoom(zoom - 0.1);
-    }
-  };
-
-  const toggleFlash = () => {
-    setFlash(flashModeOrder[flash]);
-  };
-
-  const toggleWB = () => {
-    setWhiteBalance(wbOrder[whiteBalance]);
-  };
-
-  const _takePicture = (options = {}) =>
-    cameraRef.current.takePictureAsync(options);
-
-  const _takeVideo = (options = {}) => cameraRef.current.recordAsync(options);
-
-  const stopRecording = () => cameraRef.current.stopRecording();
-
-  const pausePreview = () => cameraRef.current.pausePreview();
-
-  const _isRecording = () => cameraRef.current.isRecording();
-
-  const resumePreview = () => cameraRef.current.resumePreview();
-
-  const touchToFocus = useCallback(event => {
-    const { pageX, pageY } = event.nativeEvent;
-    const screenWidth = Dimensions.get('window').width;
-    const screenHeight = Dimensions.get('window').height;
-    const isPortrait = screenHeight > screenWidth;
-
-    let x = pageX / screenWidth;
-    let y = pageY / screenHeight;
-
-    // Coordinate transform for portrait. See autoFocusPointOfInterest in docs for more info
-    if (isPortrait) {
-      x = pageY / screenHeight;
-      y = -(pageX / screenWidth) + 1;
-    }
-
-    setAutoFocusPoint({
-      normalized: { x, y },
-      drawRectPosition: { x: pageX, y: pageY },
-    });
-  }, []);
-
-  const toggleCameraState = newCameraState => {
-    setCameraState({ [newCameraState]: !cameraState[newCameraState] });
-  };
+  const [zoom, { setZoom, zoomIn, zoomOut }] = useZoom(cameraOptions.zoom);
 
   const drawFocusRingPosition = useMemo(
     () => ({
@@ -102,20 +47,6 @@ export const useCamera = (cameraOptions = {}) => {
       left: autoFocusPoint.drawRectPosition.x - 32,
     }),
     [autoFocusPoint],
-  );
-
-  const textRecognized = useCallback(object => {
-    const { textBlocks } = object;
-    setTextBlocks(textBlocks);
-  }, []);
-
-  const facesDetected = useCallback(({ faces }) => {
-    setFaces(faces);
-  }, []);
-
-  const barcodeRecognized = useCallback(
-    ({ barcodes }) => setBarcodes(barcodes),
-    [],
   );
 
   return [
@@ -146,15 +77,12 @@ export const useCamera = (cameraOptions = {}) => {
       zoomOut,
       setFocusDepth,
       toggleCameraState,
-      textRecognized,
-      facesDetected,
-      _takePicture,
-      _takeVideo,
+      takePicture,
+      recordVideo,
       stopRecording,
       pausePreview,
-      _isRecording,
+      isRecording,
       resumePreview,
-      barcodeRecognized,
       setRatio,
       setIsRecording,
     },

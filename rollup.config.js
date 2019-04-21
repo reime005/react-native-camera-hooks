@@ -1,13 +1,8 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable */
 
-const { uglify } = require('rollup-plugin-uglify');
 const babel = require('rollup-plugin-babel');
-const changeCase = require('change-case');
 const produce = require('immer').default;
-const replace = require('rollup-plugin-replace');
-const fileSize = require('rollup-plugin-filesize');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
+const typescript = require('rollup-plugin-typescript');
 
 const packageJson = require('./package.json');
 
@@ -20,6 +15,9 @@ const baseConfig = {
     sourcemap: true,
   },
   plugins: [
+    typescript({
+      typescript: require('typescript'),
+    }),
     babel({
       babelrc: false,
       exclude: 'node_modules/**',
@@ -47,38 +45,7 @@ const baseConfig = {
   ],
 };
 
-const commonUMD = config =>
-  produce(config, draft => {
-    draft.external.splice(draft.external.indexOf('shallowequal'), 1);
-    draft.output.format = 'umd';
-    draft.output.globals = {
-      immer: 'immer',
-      react: 'React',
-    };
-    draft.output.name = changeCase
-      .titleCase(packageJson.name.replace(/-/g, ' '))
-      .replace(/ /g, '');
-    draft.plugins.push(fileSize(), resolve(), commonjs());
-  });
-
 module.exports = [
-  // Universal module definition (UMD) build, unminified, development
-  produce(commonUMD(baseConfig), draft => {
-    draft.output.file = `dist/${packageJson.name}.umd.development.js`;
-    draft.plugins = [
-      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-      ...draft.plugins,
-    ];
-  }),
-  // Universal module definition (UMD) build, minified, production
-  produce(commonUMD(baseConfig), draft => {
-    draft.output.file = `dist/${packageJson.name}.umd.js`;
-    draft.plugins = [
-      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-      ...draft.plugins,
-      uglify(),
-    ];
-  }),
   // ESM build
   produce(baseConfig, draft => {
     draft.output.format = 'esm';

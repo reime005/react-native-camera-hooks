@@ -1,52 +1,38 @@
-import { isStateObject } from '../lib';
+import * as React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure, render } from 'enzyme';
+import toJson, { createSerializer, renderToJson } from 'enzyme-to-json';
+import { ExampleComponent } from '../../example/ExampleComponent';
+import { initialCameraState } from '../initialState';
 
-describe('isObject', () => {
-  test('anon functions', () => {
-    expect(isStateObject(() => undefined)).toBe(false);
+expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
+
+configure({ adapter: new Adapter() });
+
+describe('React Native Camera Hooks', () => {
+  test('renders default', () => {
+    const wrapper = shallow(<ExampleComponent />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  test('functions', () => {
-    function foo() {}
-    expect(isStateObject(foo)).toBe(false);
-  });
+  test('renders with flipped side and simple regex checks', () => {
+    let wrapper = shallow(
+      <ExampleComponent
+        initialProps={{ ...initialCameraState, type: 'front', ratio: '16:9' }}
+      />,
+    );
 
-  // We won't fix this as you shouldn't be adding regexes to your state
-  test('regex', () => {
-    expect(isStateObject(/foo/)).toBe(true);
-  });
+    expect(toJson(wrapper)).toMatchSnapshot();
 
-  test('null', () => {
-    expect(isStateObject(null)).toBe(false);
-  });
+    expect(JSON.stringify(toJson(wrapper))).not.toMatch(/"back"/);
 
-  test('string', () => {
-    expect(isStateObject('foo')).toBe(false);
-  });
+    wrapper = shallow(
+      <ExampleComponent
+        initialProps={{ ...initialCameraState, type: 'back', ratio: '16:9' }}
+      />,
+    );
 
-  test('number', () => {
-    expect(isStateObject(1)).toBe(false);
-  });
-
-  test('boolean', () => {
-    expect(isStateObject(true)).toBe(false);
-  });
-
-  test('object', () => {
-    expect(isStateObject({})).toBe(true);
-  });
-
-  test('class', () => {
-    class Foo {}
-    expect(isStateObject(Foo)).toBe(false);
-  });
-
-  test('class instance', () => {
-    class Foo {}
-    const foo = new Foo();
-    expect(isStateObject(foo)).toBe(true);
-  });
-
-  test('array', () => {
-    expect(isStateObject([])).toBe(false);
+    expect(JSON.stringify(toJson(wrapper))).toMatch(/"back"/);
   });
 });

@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React Native Camera Hooks renders default 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Camera
+    androidCameraPermissionOptions={
+      Object {
+        "message": "",
+        "title": "",
+      }
+    }
+    androidRecordAudioPermissionOptions={
+      Object {
+        "message": "",
+        "title": "",
+      }
+    }
+    autoFocus={1}
+    barCodeTypes={Array []}
+    captureAudio={true}
+    exposure={0}
+    faceDetectionClassifications={0}
+    faceDetectionLandmarks={0}
+    faceDetectionMode={1}
+    flashMode={1}
+    focusDepth={0}
+    mirrorVideo={false}
+    notAuthorizedView={
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Camera not authorized
+        </Text>
+      </View>
+    }
+    pendingAuthorizationView={
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+    }
+    permissionDialogMessage=""
+    permissionDialogTitle=""
+    pictureSize="None"
+    playSoundOnCapture={false}
+    ratio="16:9"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    type={1}
+    useCamera2Api={false}
+    videoStabilizationMode={0}
+    zoom={0}
+  />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 45,
+        "width": "100%",
+      }
+    }
+    testID="button"
+  >
+    1
+  </TouchableOpacity>
+</View>
+`;
+
+exports[`React Native Camera Hooks renders with flipped side and simple regex checks 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Camera
+    androidCameraPermissionOptions={
+      Object {
+        "message": "",
+        "title": "",
+      }
+    }
+    androidRecordAudioPermissionOptions={
+      Object {
+        "message": "",
+        "title": "",
+      }
+    }
+    autoFocus={1}
+    barCodeTypes={Array []}
+    captureAudio={true}
+    exposure={0}
+    faceDetectionClassifications={0}
+    faceDetectionLandmarks={0}
+    faceDetectionMode={1}
+    flashMode={1}
+    focusDepth={0}
+    mirrorVideo={false}
+    notAuthorizedView={
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          Camera not authorized
+        </Text>
+      </View>
+    }
+    pendingAuthorizationView={
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+    }
+    permissionDialogMessage=""
+    permissionDialogTitle=""
+    pictureSize="None"
+    playSoundOnCapture={false}
+    ratio="16:9"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    type="front"
+    useCamera2Api={false}
+    videoStabilizationMode={0}
+    zoom={0}
+  />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 45,
+        "width": "100%",
+      }
+    }
+    testID="button"
+  >
+    front
+  </TouchableOpacity>
+</View>
+`;
