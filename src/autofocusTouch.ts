@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { Dimensions } from 'react-native';
 
-export const useAutoFocus = (state = {}) => {
+export const useAutoFocusTouch = (state = {}) => {
   const [autoFocusPoint, setAutoFocusPoint] = useState(state);
 
   const touchToFocus = useCallback(event => {

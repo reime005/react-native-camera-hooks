@@ -9,6 +9,7 @@ import { recordVideo } from './recordVideo';
 import { takePicture } from './takePicture';
 import { useZoom, useCameraState } from './misc';
 import { initialCameraState } from './initialState';
+import { useAutoFocusTouch } from './autofocusTouch';
 
 export {
   initialCameraState,
@@ -21,4 +22,5 @@ export {
   takePicture,
   useZoom,
   useCameraState,
+  useAutoFocusTouch,
 };

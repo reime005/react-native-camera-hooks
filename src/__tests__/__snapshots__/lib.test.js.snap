@@ -22,6 +22,12 @@ exports[`React Native Camera Hooks renders default 1`] = `
       }
     }
     autoFocus={1}
+    autoFocusPointOfInterest={
+      Object {
+        "x": 0.5,
+        "y": 0.5,
+      }
+    }
     barCodeTypes={Array []}
     captureAudio={true}
     exposure={0}
@@ -53,6 +59,8 @@ exports[`React Native Camera Hooks renders default 1`] = `
         </Text>
       </View>
     }
+    onFacesDetected={[Function]}
+    onTextRecognized={[Function]}
     pendingAuthorizationView={
       <View
         style={
@@ -85,6 +93,14 @@ exports[`React Native Camera Hooks renders default 1`] = `
     useCamera2Api={false}
     videoStabilizationMode={0}
     zoom={0}
+  />
+  <TouchableWithoutFeedback
+    onPress={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   />
   <TouchableOpacity
     activeOpacity={0.2}
@@ -124,6 +140,12 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
       }
     }
     autoFocus={1}
+    autoFocusPointOfInterest={
+      Object {
+        "x": 0.5,
+        "y": 0.5,
+      }
+    }
     barCodeTypes={Array []}
     captureAudio={true}
     exposure={0}
@@ -155,6 +177,8 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
         </Text>
       </View>
     }
+    onFacesDetected={[Function]}
+    onTextRecognized={[Function]}
     pendingAuthorizationView={
       <View
         style={
@@ -187,6 +211,14 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
     useCamera2Api={false}
     videoStabilizationMode={0}
     zoom={0}
+  />
+  <TouchableWithoutFeedback
+    onPress={[Function]}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   />
   <TouchableOpacity
     activeOpacity={0.2}

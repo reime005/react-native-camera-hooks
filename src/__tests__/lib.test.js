@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure, render } from 'enzyme';
-import toJson, { createSerializer, renderToJson } from 'enzyme-to-json';
+import { shallow, configure } from 'enzyme';
+import toJson, { createSerializer } from 'enzyme-to-json';
 import { ExampleComponent } from '../../example/ExampleComponent';
 import { initialCameraState } from '../initialState';
 
@@ -20,7 +20,7 @@ describe('React Native Camera Hooks', () => {
     let wrapper = shallow(
       <ExampleComponent
         initialProps={{ ...initialCameraState, type: 'front', ratio: '16:9' }}
-      />,
+      />
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('React Native Camera Hooks', () => {
     wrapper = shallow(
       <ExampleComponent
         initialProps={{ ...initialCameraState, type: 'back', ratio: '16:9' }}
-      />,
+      />
     );
 
     expect(JSON.stringify(toJson(wrapper))).toMatch(/"back"/);

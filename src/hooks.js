@@ -1,4 +1,5 @@
-import { useState, useRef, useCallback, useMemo } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState, useRef, useMemo } from 'react';
 import {
   useFlash,
   useWhiteBalance,
@@ -11,6 +12,10 @@ import { takePicture } from './takePicture';
 import { recordVideo } from './recordVideo';
 import { stopRecording } from './stopRecording';
 import { pausePreview, resumePreview } from './preview';
+import { useAutoFocusTouch } from './autofocusTouch';
+import { useTextRecognition } from './useTextRecognition';
+import { useFaceDetection } from './useFaceDetection';
+import { useBarcodeDetection } from './useBarcodeDetection';
 
 export const useCamera = (cameraOptions = initialCameraState) => {
   const cameraRef = useRef(null);
@@ -20,22 +25,27 @@ export const useCamera = (cameraOptions = initialCameraState) => {
   ]);
   const [flash, { setFlash, toggleFlash }] = useFlash(cameraOptions.flash);
   const [whiteBalance, { setWhiteBalance, toggleWB }] = useWhiteBalance(
-    cameraOptions.whiteBalance,
+    cameraOptions.whiteBalance
   );
   const [autoFocus, toggleAutoFocus] = useAutoFocus(cameraOptions.autoFocus, [
     'on',
     'off',
   ]);
-  const [autoFocusPoint, { setAutoFocusPoint, touchToFocus }] = useAutoFocus(
-    cameraOptions.autoFocusPoint,
-  );
+  const [
+    autoFocusPoint,
+    { setAutoFocusPoint, touchToFocus },
+  ] = useAutoFocusTouch(cameraOptions.autoFocusPoint);
   const [focusDepth, setFocusDepth] = useState(cameraOptions.focusDepth);
   const [cameraState, { setCameraState, toggleCameraState }] = useCameraState(
-    {},
+    {}
   );
-  const [textBlocks, setTextBlocks] = useState([]);
-  const [faces, setFaces] = useState([]);
-  const [barcodes, setBarcodes] = useState([]);
+  const [textBlocks, { setTextBlocks, textRecognized }] = useTextRecognition(
+    []
+  );
+  const [faces, { setFaces, facesDetected }] = useFaceDetection([]);
+  const [barcodes, { setBarcodes, barcodeRecognized }] = useBarcodeDetection(
+    []
+  );
   const [ratio, setRatio] = useState(cameraOptions.ratio);
   const [isRecording, setIsRecording] = useState(false);
 
@@ -46,7 +56,7 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       top: autoFocusPoint.drawRectPosition.y - 32,
       left: autoFocusPoint.drawRectPosition.x - 32,
     }),
-    [autoFocusPoint],
+    [autoFocusPoint]
   );
 
   return [
@@ -68,6 +78,11 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       isRecording,
     },
     {
+      setFlash,
+      setWhiteBalance,
+      setZoom,
+      setCameraState,
+      setAutoFocusPoint,
       toggleFacing,
       toggleFlash,
       toggleWB,
@@ -85,6 +100,12 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       resumePreview,
       setRatio,
       setIsRecording,
+      barcodeRecognized,
+      setBarcodes,
+      textRecognized,
+      setTextBlocks,
+      facesDetected,
+      setFaces,
     },
   ];
 };
