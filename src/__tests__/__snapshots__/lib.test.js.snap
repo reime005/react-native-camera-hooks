@@ -115,6 +115,19 @@ exports[`React Native Camera Hooks renders default 1`] = `
   >
     1
   </TouchableOpacity>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 45,
+        "width": "100%",
+      }
+    }
+    testID="button"
+  >
+    1
+  </TouchableOpacity>
 </View>
 `;
 
@@ -220,6 +233,19 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
       }
     }
   />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "height": 45,
+        "width": "100%",
+      }
+    }
+    testID="button"
+  >
+    front
+  </TouchableOpacity>
   <TouchableOpacity
     activeOpacity={0.2}
     onPress={[Function]}
