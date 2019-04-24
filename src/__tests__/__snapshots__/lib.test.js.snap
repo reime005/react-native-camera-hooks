@@ -125,9 +125,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
       }
     }
     testID="button"
-  >
-    1
-  </TouchableOpacity>
+  />
 </View>
 `;
 
@@ -256,8 +254,6 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
       }
     }
     testID="button"
-  >
-    front
-  </TouchableOpacity>
+  />
 </View>
 `;

@@ -5,8 +5,15 @@ import { useCamera } from '../src/hooks';
 
 export const ExampleComponent = ({ initialProps }) => {
   const [
-    { cameraRef, type, ratio, autoFocus, autoFocusPoint },
-    { toggleFacing, touchToFocus, textRecognized, facesDetected },
+    { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
+    {
+      toggleFacing,
+      touchToFocus,
+      textRecognized,
+      facesDetected,
+      recordVideo,
+      setIsRecording,
+    },
   ] = useCamera(initialProps);
 
   return (
@@ -35,6 +42,24 @@ export const ExampleComponent = ({ initialProps }) => {
         style={{ width: '100%', height: 45 }}>
         {type}
       </TouchableOpacity>
+
+      {!isRecording && (
+        <TouchableOpacity
+          testID="button"
+          onPress={async () => {
+            try {
+              setIsRecording(true);
+              const data = await recordVideo();
+              console.warn(data);
+            } catch (error) {
+              console.warn(error);
+            } finally {
+              setIsRecording(false);
+            }
+          }}
+          style={{ width: '100%', height: 45 }}
+        />
+      )}
     </View>
   );
 };
