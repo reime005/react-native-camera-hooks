@@ -78,7 +78,9 @@ const FunctionalComponentExample = ({ initialProps }) => {
 
 ## Features
 
-  - ...
+  - React Hooks Support: Use React Native Camera with Functional Components
+  - Wrapper around camera API that makes the usage easier
+  - TypeScript support
 
 <p>&nbsp;</p>
 
@@ -86,7 +88,7 @@ const FunctionalComponentExample = ({ initialProps }) => {
 
 ## Introduction
 
-...
+React Native Camera Hooks provides you with functionality to use the React Native Camera API with Functional Components.
 
 <p>&nbsp;</p>
 
