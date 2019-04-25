@@ -96,7 +96,20 @@ React Native Camera Hooks provides you with functionality to use the React Nativ
 
 ## Installation
 
-...
+To install react-native-camera-hooks, do either
+
+```bash
+npm install react-native-camera-hooks
+```
+
+or
+
+```bash
+yarn add react-native-camera-hooks
+```
+
+Note that this requires a react-native version > 0.59 which supports React Hooks. Also, react-native-camera has to be installed.
+
 
 <p>&nbsp;</p>
 
