@@ -94,7 +94,7 @@ Constants are defined in [constants](./src/constants.ts) and [initalState](./src
 |Function|Description|
 |---|---|
 |`useCamera(initialState)`|Includes all camera hooks described below. See also the example above|
-|`useZoom(zoom)`|Zoom feature. Includes `zoom`, `setZoom`, `zoomIn` (increment by 0.01) and `zoomOut` (decrement by 0.1) |
+|`useZoom(state)`|Zoom feature. Includes `zoom`, `setZoom`, `zoomIn` (increment by 0.01) and `zoomOut` (decrement by 0.1) |
 |`useToggleFacing(state, modes)`|Toggles between two values (front and back side of the camera). Includes `type`, `toggleFacing`.|
 |`useAutoFocus(state, modes)`|Toggles between two values (focus on or off). Includes `autoFocus` and `toggleAutoFocus`.|
 |`useWhiteBalance(state)`|Toggles between white balance values. Includes `whiteBalance`, `toggleWB` and `setWhiteBalance`.|
