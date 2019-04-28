@@ -1,13 +1,18 @@
 <p>&nbsp;</p>
 <p align="center">
   <img src="logo.png" width="350" title="hover text">
-  <p align='center'>React Hooks for React Native Camera</p>
+  <p align='center'>Hooks for React Native Camera</p>
 </p>
 <p>&nbsp;</p>
 
 [![npm](https://img.shields.io/npm/v/react-native-camera-hooks.svg?style=flat-square)](http://npm.im/react-native-camera-hooks)
 [![MIT License](https://img.shields.io/npm/l/react-native-camera-hooks.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-[![Travis](https://img.shields.io/travis/ctrlplusb/react-native-camera-hooks.svg?style=flat-square)](https://travis-ci.org/reime005/react-native-camera-hooks)
+[![CircleCI](https://circleci.com/gh/reime005/react-native-camera-hooks.svg?style=svg)](https://circleci.com/gh/reime005/react-native-camera-hooks)
+
+## Introduction
+
+
+React Native Camera Hooks provides you with functionality to use the React Native Camera API with Functional Components.
 
 ```javascript
 import { View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
@@ -86,20 +91,12 @@ const FunctionalComponentExample = ({ initialProps }) => {
 
 ---
 
-## Introduction
-
-React Native Camera Hooks provides you with functionality to use the React Native Camera API with Functional Components.
-
-<p>&nbsp;</p>
-
----
-
 ## Installation
 
 To install react-native-camera-hooks, do either
 
 ```bash
-npm install react-native-camera-hooks
+npm install --save react-native-camera-hooks
 ```
 
 or
@@ -109,7 +106,6 @@ yarn add react-native-camera-hooks
 ```
 
 Note that this requires a react-native version > 0.59 which supports React Hooks. Also, react-native-camera has to be installed.
-
 
 <p>&nbsp;</p>
 
