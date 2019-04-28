@@ -17,8 +17,8 @@ export const recordVideo = async (
   options: RecordOptions = defaultVideoRecordOptions,
 ): Promise<RecordResponse> => {
   if (cameraRef && cameraRef.recordAsync) {
-    return await cameraRef.recordAsync(options);
+    return cameraRef.recordAsync(options);
   } else if (cameraRef && cameraRef.current && cameraRef.current.recordAsync) {
-    return await cameraRef.current.recordAsync(options);
+    return cameraRef.current.recordAsync(options);
   }
 };

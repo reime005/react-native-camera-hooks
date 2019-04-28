@@ -10,6 +10,11 @@ import { takePicture } from './takePicture';
 import { useZoom, useCameraState } from './misc';
 import { initialCameraState } from './initialState';
 import { useAutoFocusTouch } from './autofocusTouch';
+import { stopRecording } from './stopRecording';
+import { pausePreview, resumePreview } from './preview';
+import { useBarcodeDetection } from './useBarcodeDetection';
+import { useFaceDetection } from './useFaceDetection';
+import { useTextRecognition } from './useTextRecognition';
 
 export {
   initialCameraState,
@@ -23,4 +28,10 @@ export {
   useZoom,
   useCameraState,
   useAutoFocusTouch,
+  stopRecording,
+  pausePreview,
+  resumePreview,
+  useBarcodeDetection,
+  useFaceDetection,
+  useTextRecognition,
 };

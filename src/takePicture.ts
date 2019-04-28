@@ -20,12 +20,12 @@ export const takePicture = async (
   options: TakePictureOptions = defaultPictureTakeOptions,
 ): Promise<TakePictureResponse> => {
   if (cameraRef && cameraRef.takePictureAsync) {
-    return await cameraRef.takePictureAsync(options);
+    return cameraRef.takePictureAsync(options);
   } else if (
     cameraRef &&
     cameraRef.current &&
     cameraRef.current.takePictureAsync
   ) {
-    return await cameraRef.current.takePictureAsync(options);
+    return cameraRef.current.takePictureAsync(options);
   }
 };
