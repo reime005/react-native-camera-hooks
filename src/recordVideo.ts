@@ -1,4 +1,4 @@
-interface RecordResponse {
+export interface RecordResponse {
   uri: string;
   videoOrientation: number;
   deviceOrientation: number;
