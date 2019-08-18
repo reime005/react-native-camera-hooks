@@ -1,15 +1,30 @@
-import { RNCamera, RecordResponse, RecordOptions } from 'react-native-camera';
+interface RecordResponse {
+  uri: string;
+  videoOrientation: number;
+  deviceOrientation: number;
+  isRecordingInterrupted: boolean;
+  codec: string;
+}
+
+interface RecordOptions {
+  quality?: string;
+  orientation?: number | string;
+  maxDuration?: number;
+  maxFileSize?: number;
+  mute?: boolean;
+  mirrorVideo?: boolean;
+  path?: string;
+  videoBitrate?: number;
+  codec?: string;
+}
 
 export const defaultVideoRecordOptions: RecordOptions = {
-  quality: RNCamera.Constants.VideoQuality && RNCamera.Constants.VideoQuality['288p'],
-  orientation: RNCamera.Constants.Orientation.auto,
+  quality: '720p',
+  orientation: 'auto',
   maxDuration: 5,
-  // maxFileSize: 5,
   mute: false,
   mirrorVideo: false,
-  // path: '',
   videoBitrate: 5000000,
-  // codec: RNCamera.Constants.VideoCodec['H264']
 };
 
 export const recordVideo = async (

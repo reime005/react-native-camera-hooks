@@ -1,10 +1,9 @@
-import { Dimensions } from "react-native";
-import { RNCamera } from "react-native-camera";
+import { Dimensions } from 'react-native';
 
 export const initialCameraState = {
-  flash: RNCamera.Constants.FlashMode.on,
+  flash: 'on',
   zoom: 0,
-  autoFocus: RNCamera.Constants.AutoFocus.on,
+  autoFocus: 'on',
   autoFocusPoint: {
     normalized: { x: 0.5, y: 0.5 }, // normalized values required for autoFocusPointOfInterest
     drawRectPosition: {
@@ -13,10 +12,10 @@ export const initialCameraState = {
     },
   },
   focusDepth: 0,
-  type: RNCamera.Constants.Type.back,
-  whiteBalance: RNCamera.Constants.WhiteBalance.auto,
+  type: 'back',
+  whiteBalance: 'auto',
   ratio: '16:9',
-  
+
   isRecording: false,
   canDetectFaces: false,
   canDetectText: false,

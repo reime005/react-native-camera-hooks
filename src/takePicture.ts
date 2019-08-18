@@ -1,8 +1,26 @@
-import {
-  RNCamera,
-  TakePictureOptions,
-  TakePictureResponse,
-} from 'react-native-camera';
+interface TakePictureResponse {
+  width: number;
+  height: number;
+  uri: string;
+  base64?: string;
+  exif?: { [name: string]: any };
+  pictureOrientation: number;
+  deviceOrientation: number;
+}
+
+interface TakePictureOptions {
+  quality?: number;
+  orientation?: number | string;
+  base64?: boolean;
+  exif?: boolean;
+  width?: number;
+  mirrorImage?: boolean;
+  doNotSave?: boolean;
+  pauseAfterCapture?: boolean;
+  skipProcessing?: boolean;
+  fixOrientation?: boolean;
+  forceUpOrientation?: boolean;
+}
 
 export const defaultPictureTakeOptions: TakePictureOptions = {
   quality: 0.8,
@@ -12,7 +30,7 @@ export const defaultPictureTakeOptions: TakePictureOptions = {
   exif: true,
   forceUpOrientation: true,
   fixOrientation: true,
-  orientation: RNCamera.Constants.Orientation.portrait,
+  orientation: 'portrait',
 };
 
 export const takePicture = async (
