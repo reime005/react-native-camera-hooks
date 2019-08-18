@@ -6,7 +6,7 @@ interface RecordResponse {
   codec: string;
 }
 
-interface RecordOptions {
+export interface RecordOptions {
   quality?: string;
   orientation?: number | string;
   maxDuration?: number;

@@ -9,6 +9,7 @@ import {
   RequiredKeys,
 } from 'typelevel-ts';
 import { Param0, Param1 } from 'type-zoo';
+import { RecordOptions } from './src/recordVideo';
 
 interface UseCameraState {
   cameraRef: any,
@@ -53,7 +54,7 @@ interface UseCameraStateAction {
   setFocusDepth: () => void,
   toggleCameraState: () => void,
   takePicture: (options: any) => object,
-  recordVideo: (options: any) => object,
+  recordVideo: (options?: RecordOptions) => object,
   stopRecording: () => void,
   pausePreview: () => void,
   isRecording: () => boolean,
