@@ -39,13 +39,9 @@ export const useCamera = (cameraOptions = initialCameraState) => {
   const [cameraState, { setCameraState, toggleCameraState }] = useCameraState(
     {}
   );
-  const [textBlocks, { setTextBlocks, textRecognized }] = useTextRecognition(
-    []
-  );
-  const [faces, { setFaces, facesDetected }] = useFaceDetection([]);
-  const [barcodes, { setBarcodes, barcodeRecognized }] = useBarcodeDetection(
-    []
-  );
+  const [textBlocks, { textRecognized }] = useTextRecognition([]);
+  const [faces, { facesDetected }] = useFaceDetection([]);
+  const [barcodes, { barcodeRecognized }] = useBarcodeDetection([]);
   const [ratio, setRatio] = useState(cameraOptions.ratio);
   const [isRecording, setIsRecording] = useState(false);
 
@@ -101,11 +97,8 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       setRatio,
       setIsRecording,
       barcodeRecognized,
-      setBarcodes,
       textRecognized,
-      setTextBlocks,
       facesDetected,
-      setFaces,
     },
   ];
 };

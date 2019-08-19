@@ -3,12 +3,12 @@ import { useState, useCallback } from 'react';
 export const useBarcodeDetection = (state = []) => {
   const [barcodes, setBarcodes] = useState(state);
 
-  const barcodeRecognized = useCallback(({ barcodes }) => {
-    setBarcodes(barcodes);
-  }, []);
+  const barcodeRecognized = useCallback(
+    data => {
+      setBarcodes(data.barcodes);
+    },
+    [setBarcodes],
+  );
 
-  return [
-    barcodes,
-    {setBarcodes, barcodeRecognized}
-  ]
-}
+  return [barcodes, { barcodeRecognized }];
+};

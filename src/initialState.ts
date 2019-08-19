@@ -1,9 +1,9 @@
 import { Dimensions } from 'react-native';
 
 export interface CameraOptions {
-  flash?: string;
+  flash?: string | number;
   zoom?: number;
-  autoFocus?: string;
+  autoFocus?: string | boolean | number;
   autoFocusPoint?: {
     normalized: {
       x: number;
@@ -15,8 +15,8 @@ export interface CameraOptions {
     }
   };
   focusDepth?: number;
-  type?: string;
-  whiteBalance?: string;
+  type?: string | number;
+  whiteBalance?: number | string,
   ratio?: string;
   isRecording?: boolean;
   canDetectFaces?: boolean;
@@ -26,6 +26,7 @@ export interface CameraOptions {
   textBlocks?: any[];
   barcodes?: any[];
 }
+
 
 export const initialCameraState: CameraOptions = {
   flash: 'on',

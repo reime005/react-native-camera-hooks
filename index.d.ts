@@ -8,16 +8,16 @@ import {
   Overwrite,
   RequiredKeys,
 } from 'typelevel-ts';
-import { Param0, Param1 } from 'type-zoo';
 import { RecordOptions, RecordResponse } from './src/recordVideo';
 import { CameraOptions } from './src/initialState';
+import { TakePictureOptions, TakePictureResponse } from './src/takePicture';
 
 interface UseCameraState {
   cameraRef: any,
-  type: string,
-  flash: string,
-  whiteBalance: string,
-  autoFocus: string,
+  type: string | number,
+  flash: string | number,
+  whiteBalance: string | number,
+  autoFocus: string | number,
   autoFocusPoint: {
     normalized: {
       x: number,
@@ -40,9 +40,9 @@ interface UseCameraState {
 }
 
 interface UseCameraStateAction {
-  setFlash: () => void,
-  setWhiteBalance: () => void,
-  setZoom: () => void,
+  setFlash: (flash: string | number) => void,
+  setWhiteBalance: (whiteBalance: number | string) => void,
+  setZoom: (zoom: number) => void,
   setCameraState: () => void,
   setAutoFocusPoint: () => void,
   toggleFacing: () => void,
@@ -52,22 +52,19 @@ interface UseCameraStateAction {
   touchToFocus: () => void,
   zoomIn: () => void,
   zoomOut: () => void,
-  setFocusDepth: () => void,
+  setFocusDepth: (focusDepth: number) => void,
   toggleCameraState: () => void,
-  takePicture: (options: any) => object,
+  takePicture: (options?: TakePictureOptions) => Promise<TakePictureResponse>,
   recordVideo: (options?: RecordOptions) => Promise<RecordResponse>,
-  stopRecording: () => void,
-  pausePreview: () => void,
-  isRecording: () => boolean,
-  resumePreview: () => void,
-  setRatio: () => void,
-  setIsRecording: () => void,
-  barcodeRecognized: () => void,
-  setBarcodes: (barcodes: any[]) => void,
-  textRecognized: () => void,
-  setTextBlocks: (textBlocks: any[]) => void,
-  facesDetected: () => void,
-  setFaces: (faces: any[]) => void,
+  stopRecording: () => Promise<any>,
+  pausePreview: () => Promise<boolean>,
+  isRecording: () => Promise<boolean>,
+  resumePreview: () => Promise<boolean>,
+  setRatio: (ratio: string) => void,
+  setIsRecording: (isRecording: boolean) => void,
+  barcodeRecognized: (data: any) => void,
+  textRecognized: (data: any) => void,
+  facesDetected: (data: any) => void,
 }
 
 export function useCamera(cameraOptions?: CameraOptions): [UseCameraState, UseCameraStateAction];

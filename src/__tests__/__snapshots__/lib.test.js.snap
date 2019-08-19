@@ -21,7 +21,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
         "title": "",
       }
     }
-    autoFocus={1}
+    autoFocus="on"
     autoFocusPointOfInterest={
       Object {
         "x": 0.5,
@@ -89,7 +89,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
         "flex": 1,
       }
     }
-    type={1}
+    type="back"
     useCamera2Api={false}
     videoStabilizationMode={0}
     zoom={0}
@@ -113,7 +113,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
     }
     testID="button"
   >
-    1
+    back
   </TouchableOpacity>
   <TouchableOpacity
     activeOpacity={0.2}
@@ -150,7 +150,7 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
         "title": "",
       }
     }
-    autoFocus={1}
+    autoFocus="on"
     autoFocusPointOfInterest={
       Object {
         "x": 0.5,

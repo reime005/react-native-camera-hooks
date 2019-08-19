@@ -3,12 +3,9 @@ import { useState, useCallback } from 'react';
 export const useTextRecognition = (state = []) => {
   const [textBlocks, setTextblocks] = useState(state);
 
-  const textRecognized = useCallback(({ textBlocks }) => {
-    setTextblocks(textBlocks);
+  const textRecognized = useCallback(data => {
+    setTextblocks(data.textBlocks);
   }, []);
 
-  return [
-    textBlocks,
-    {setTextblocks, textRecognized}
-  ]
-}
+  return [textBlocks, { textRecognized }];
+};

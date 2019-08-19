@@ -1,4 +1,4 @@
-interface TakePictureResponse {
+export interface TakePictureResponse {
   width: number;
   height: number;
   uri: string;
@@ -8,7 +8,7 @@ interface TakePictureResponse {
   deviceOrientation: number;
 }
 
-interface TakePictureOptions {
+export interface TakePictureOptions {
   quality?: number;
   orientation?: number | string;
   base64?: boolean;
