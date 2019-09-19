@@ -18,34 +18,38 @@ import { useFaceDetection } from './useFaceDetection';
 import { useBarcodeDetection } from './useBarcodeDetection';
 
 export const useCamera = (cameraOptions = initialCameraState) => {
+  const mergedCameraOptions = {
+    ...initialCameraState,
+    ...cameraOptions,
+  };
   const cameraRef = useRef(null);
-  const [type, toggleFacing] = useToggleFacing(cameraOptions.type, [
+  const [type, toggleFacing] = useToggleFacing(mergedCameraOptions.type, [
     'front',
     'back',
   ]);
-  const [flash, { setFlash, toggleFlash }] = useFlash(cameraOptions.flash);
+  const [flash, { setFlash, toggleFlash }] = useFlash(mergedCameraOptions.flash);
   const [whiteBalance, { setWhiteBalance, toggleWB }] = useWhiteBalance(
-    cameraOptions.whiteBalance
+    mergedCameraOptions.whiteBalance
   );
-  const [autoFocus, toggleAutoFocus] = useAutoFocus(cameraOptions.autoFocus, [
+  const [autoFocus, toggleAutoFocus] = useAutoFocus(mergedCameraOptions.autoFocus, [
     'on',
     'off',
   ]);
   const [
     autoFocusPoint,
     { setAutoFocusPoint, touchToFocus },
-  ] = useAutoFocusTouch(cameraOptions.autoFocusPoint);
-  const [focusDepth, setFocusDepth] = useState(cameraOptions.focusDepth);
+  ] = useAutoFocusTouch(mergedCameraOptions.autoFocusPoint);
+  const [focusDepth, setFocusDepth] = useState(mergedCameraOptions.focusDepth);
   const [cameraState, { setCameraState, toggleCameraState }] = useCameraState(
     {}
   );
   const [textBlocks, { textRecognized }] = useTextRecognition([]);
   const [faces, { facesDetected }] = useFaceDetection([]);
   const [barcodes, { barcodeRecognized }] = useBarcodeDetection([]);
-  const [ratio, setRatio] = useState(cameraOptions.ratio);
+  const [ratio, setRatio] = useState(mergedCameraOptions.ratio);
   const [isRecording, setIsRecording] = useState(false);
 
-  const [zoom, { setZoom, zoomIn, zoomOut }] = useZoom(cameraOptions.zoom);
+  const [zoom, { setZoom, zoomIn, zoomOut }] = useZoom(mergedCameraOptions.zoom);
 
   const drawFocusRingPosition = useMemo(
     () => ({
