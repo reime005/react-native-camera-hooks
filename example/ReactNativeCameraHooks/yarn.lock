@@ -4909,10 +4909,10 @@ react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-native-camera-hooks@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-camera-hooks/-/react-native-camera-hooks-0.0.1.tgz#f14270ef8ba479270087868fc38ece05f36c9f58"
-  integrity sha512-pKK5ikYNzCG1y5xz9Ag2lmRNbMmi1Z6Nmx+3BrNQ9q1cacKNc7PHpIK+LNcC26sXN29/FQnuOpkoSiftxNbBDQ==
+react-native-camera-hooks@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera-hooks/-/react-native-camera-hooks-0.1.0.tgz#655e3da7f00995344ac0f1722c9572e3696ee33f"
+  integrity sha512-AZiAPIA8OBFPG4B1ixU5g1OEnXPUt5X5pWi6t+zgnRuDkRJ0xB43FrGi7bXolMQa1gfQ5SPMOYsqtjOdf6rBhQ==
   dependencies:
     shallowequal "^1.1.0"
     type-zoo "^3.3.0"
