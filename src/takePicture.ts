@@ -36,7 +36,7 @@ export const defaultPictureTakeOptions: TakePictureOptions = {
 export const takePicture = async (
   { cameraRef }: { cameraRef: any },
   options: TakePictureOptions = defaultPictureTakeOptions,
-): Promise<TakePictureResponse> => {
+): Promise<TakePictureResponse|undefined> => {
   if (cameraRef && cameraRef.takePictureAsync) {
     return cameraRef.takePictureAsync(options);
   } else if (

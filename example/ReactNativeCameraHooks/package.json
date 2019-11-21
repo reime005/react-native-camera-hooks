@@ -8,12 +8,16 @@
   },
   "dependencies": {
     "@react-native-community/slider": "^1.0.4",
-    "@types/react": "^16.8.14",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.11",
+    "@types/react-native": "^0.60.23",
+    "@types/react-test-renderer": "^16.9.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.5",
     "react-native-camera": "^2.6.0",
-    "react-native-camera-hooks": "^0.1.0"
+    "react-native-camera-hooks": "^0.1.0",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -24,6 +28,7 @@
     "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"]
   }
 }

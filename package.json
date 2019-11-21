@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "React Native Hooks for the react-native-camera module.",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "dist/react-native-camera-hooks.js",
   "types": "./index.d.ts",
   "sideEffects": false,
   "files": [
