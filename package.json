@@ -34,19 +34,9 @@
     "test:coverage": "npm run test -- --coverage",
     "test:coverage:deploy": "npm run test:coverage && codecov"
   },
-  "resolutions": {
-    "@types/react": "^16.8.3",
-    "react-native": "^0.59.5"
-  },
   "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react-native-camera": ">= 2.6.0",
-    "expo-camera": ">= 6.0.0"
-  },
-  "dependencies": {
-    "shallowequal": "^1.1.0",
-    "type-zoo": "^3.3.0",
-    "typelevel-ts": "^0.3.5"
+    "expo-camera": ">= 6.0.0",
+    "react-native-camera": ">= 2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -57,7 +47,7 @@
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-flow-strip-types": "^7.4.0",
     "@babel/polyfill": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.4.0",
@@ -92,23 +82,26 @@
     "prettier": "^1.17.0",
     "prettier-eslint": "^8.8.2",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
     "react-native": "^0.59.5",
     "react-native-camera": "^3.1.2",
+    "react-test-renderer": "16.8.3",
     "react-testing-library": "^6.1.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.10.1",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup": "^1.27.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-uglify": "^6.0.3",
+    "shallowequal": "^1.1.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
     "tslib": "^1.9.3",
     "tslint": "^5.16.0",
-    "typescript": "^3.4.4",
+    "typelevel-ts": "^0.3.5",
+    "typescript": "^3.7.2",
     "typings-tester": "^0.3.2"
   },
   "jest": {
