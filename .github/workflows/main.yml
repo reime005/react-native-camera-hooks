@@ -22,7 +22,7 @@ jobs:
 
     - name: Lint
       run:
-        yarn lint
+        yarn lint:ci
 
     - name: Test
       run:
