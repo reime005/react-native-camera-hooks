@@ -27,14 +27,16 @@ export const useCamera = (cameraOptions = initialCameraState) => {
     'front',
     'back',
   ]);
-  const [flash, { setFlash, toggleFlash }] = useFlash(mergedCameraOptions.flash);
+  const [flash, { setFlash, toggleFlash }] = useFlash(
+    mergedCameraOptions.flash
+  );
   const [whiteBalance, { setWhiteBalance, toggleWB }] = useWhiteBalance(
     mergedCameraOptions.whiteBalance
   );
-  const [autoFocus, toggleAutoFocus] = useAutoFocus(mergedCameraOptions.autoFocus, [
-    'on',
-    'off',
-  ]);
+  const [autoFocus, toggleAutoFocus] = useAutoFocus(
+    mergedCameraOptions.autoFocus,
+    ['on', 'off']
+  );
   const [
     autoFocusPoint,
     { setAutoFocusPoint, touchToFocus },
@@ -49,7 +51,9 @@ export const useCamera = (cameraOptions = initialCameraState) => {
   const [ratio, setRatio] = useState(mergedCameraOptions.ratio);
   const [isRecording, setIsRecording] = useState(false);
 
-  const [zoom, { setZoom, zoomIn, zoomOut }] = useZoom(mergedCameraOptions.zoom);
+  const [zoom, { setZoom, zoomIn, zoomOut }] = useZoom(
+    mergedCameraOptions.zoom
+  );
 
   const drawFocusRingPosition = useMemo(
     () => ({
