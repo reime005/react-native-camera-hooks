@@ -26,6 +26,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "commit": "git-cz",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
     "clean": "rimraf ./dist && rimraf ./coverage",
     "lint": "eslint src example --fix && tslint 'src/**/*.{ts,tsx}' --fix",
     "precommit": "lint-staged && npm run test",
@@ -51,6 +53,15 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.4.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/commit-analyzer": "^6.3.3",
+    "@semantic-release/git": "^7.0.18",
+    "@semantic-release/github": "^5.5.5",
+    "@semantic-release/npm": "^5.3.4",
+    "@semantic-release/release-notes-generator": "^7.3.5",
     "@types/jest": "^24.0.11",
     "@types/react": "16.8.3",
     "@types/react-native": "^0.57.47",
@@ -60,6 +71,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "change-case": "^3.1.0",
     "codecov": "^3.3.0",
+    "commitizen": "^4.0.3",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
@@ -95,6 +107,7 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.3",
+    "semantic-release": "^15.13.31",
     "shallowequal": "^1.1.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
@@ -184,5 +197,36 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": ["package.json", "CHANGELOG.md"],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/changelog", {
+        "changelogFile": "CHANGELOG.md"
+      }]
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   }
 }
