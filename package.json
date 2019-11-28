@@ -1,6 +1,6 @@
 {
   "name": "react-native-camera-hooks",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React Native Hooks for the react-native-camera module.",
   "license": "MIT",
   "main": "dist/react-native-camera-hooks.js",
@@ -214,14 +214,20 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["package.json", "CHANGELOG.md"],
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/changelog", {
-        "changelogFile": "CHANGELOG.md"
-      }]
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ]
     ]
   },
   "config": {
