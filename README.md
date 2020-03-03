@@ -16,6 +16,7 @@ React Native Camera Hooks provides you with functionality to use the React Nativ
 [![npm](https://img.shields.io/npm/v/react-native-camera-hooks.svg?style=flat-square)](http://npm.im/react-native-camera-hooks)
 ![GitHub](https://img.shields.io/github/license/reime005/react-native-camera-hooks.svg?style=flat-square)
 [![CircleCI](https://circleci.com/gh/reime005/react-native-camera-hooks.svg?style=svg)](https://circleci.com/gh/reime005/react-native-camera-hooks)
+![Deploy](https://github.com/reime005/react-native-camera-hooks/workflows/Deploy/badge.svg)
 
 ```javascript
 import { View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
