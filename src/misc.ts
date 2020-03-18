@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useZoom = (state = 0) => {
   const [zoom, setZoom] = useState(state);
@@ -20,14 +20,13 @@ export const useZoom = (state = 0) => {
     {
       setZoom,
       zoomIn,
-      zoomOut
-    }
-  ]
-}
- 
+      zoomOut,
+    },
+  ];
+};
+
 export const useCameraState = (state = {}) => {
   const [cameraState, setCameraState] = useState(state);
-
 
   const toggleCameraState = newCameraState => {
     setCameraState({ [newCameraState]: !cameraState[newCameraState] });
@@ -37,7 +36,7 @@ export const useCameraState = (state = {}) => {
     cameraState,
     {
       toggleCameraState,
-      setCameraState
-    }
-  ]
-}
+      setCameraState,
+    },
+  ];
+};

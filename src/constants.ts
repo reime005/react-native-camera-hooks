@@ -1,4 +1,3 @@
-
 export const flashModeOrder = {
   off: 'on',
   on: 'auto',

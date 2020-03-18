@@ -8,15 +8,15 @@ export interface CameraOptions {
     normalized: {
       x: number;
       y: number;
-    },
+    };
     drawRectPosition: {
       x: number;
       y: number;
-    }
+    };
   };
   focusDepth?: number;
   type?: string | number;
-  whiteBalance?: number | string,
+  whiteBalance?: number | string;
   ratio?: string;
   isRecording?: boolean;
   canDetectFaces?: boolean;
@@ -26,7 +26,6 @@ export interface CameraOptions {
   textBlocks?: any[];
   barcodes?: any[];
 }
-
 
 export const initialCameraState: CameraOptions = {
   flash: 'on',
