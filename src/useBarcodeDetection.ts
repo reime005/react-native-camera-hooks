@@ -7,7 +7,7 @@ export const useBarcodeDetection = (state = []) => {
     data => {
       setBarcodes(data.barcodes);
     },
-    [setBarcodes],
+    [setBarcodes]
   );
 
   return [barcodes, { barcodeRecognized }];

@@ -1,21 +1,25 @@
 {
-    "extends": ["react-native-prettier", "eslint:recommended"],
+    "extends": ["eslint:recommended", "react-native-prettier"],
     "plugins": [
+      "react",
       "react-native",
-      "react-hooks"
+      "react-hooks",
+      "@typescript-eslint"
     ],
     "settings": {
+      "react": {
+        "version": "16.9"
+      },
       "flowtype": {
         "onlyFilesWithFlowAnnotation": true
       }
     },
     "env": {"es6": true, "jest": false},
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2016,
       "sourceType": "module",
       "ecmaFeatures": {
-        "experimentalObjectRestSpread": true,
         "impliedStrict": true,
         "globalReturn": false,
         "jsx": true
@@ -29,6 +33,8 @@
       "comma-dangle": "off",
       "no-alert": "warn",
       "react-hooks/rules-of-hooks": "warn",
-      "react-hooks/exhaustive-deps": "warn"
+      "react-hooks/exhaustive-deps": "warn",
+      "import/prefer-default-export": "off",
+      "flowtype/no-types-missing-file-annotation": "off"
     }
 }

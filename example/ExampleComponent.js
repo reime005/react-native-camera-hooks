@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+//eslint-disable-next-line
 import { RNCamera } from 'react-native-camera';
 import { useCamera } from '../src/hooks';
 
