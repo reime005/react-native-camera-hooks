@@ -35,6 +35,7 @@
       "react-hooks/rules-of-hooks": "warn",
       "react-hooks/exhaustive-deps": "warn",
       "import/prefer-default-export": "off",
+      "import/namespace": "warn",
       "flowtype/no-types-missing-file-annotation": "off"
     }
 }

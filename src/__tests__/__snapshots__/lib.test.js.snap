@@ -9,18 +9,8 @@ exports[`React Native Camera Hooks renders default 1`] = `
   }
 >
   <Camera
-    androidCameraPermissionOptions={
-      Object {
-        "message": "",
-        "title": "",
-      }
-    }
-    androidRecordAudioPermissionOptions={
-      Object {
-        "message": "",
-        "title": "",
-      }
-    }
+    androidCameraPermissionOptions={null}
+    androidRecordAudioPermissionOptions={null}
     autoFocus="on"
     autoFocusPointOfInterest={
       Object {
@@ -29,13 +19,16 @@ exports[`React Native Camera Hooks renders default 1`] = `
       }
     }
     barCodeTypes={Array []}
+    cameraId={null}
     captureAudio={true}
-    exposure={0}
+    exposure={-1}
     faceDetectionClassifications={0}
     faceDetectionLandmarks={0}
     faceDetectionMode={1}
     flashMode={1}
     focusDepth={0}
+    keepAudioSession={false}
+    maxZoom={0}
     mirrorVideo={false}
     notAuthorizedView={
       <View
@@ -91,6 +84,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
     }
     type="back"
     useCamera2Api={false}
+    useNativeZoom={false}
     videoStabilizationMode={0}
     zoom={0}
   />
@@ -102,8 +96,7 @@ exports[`React Native Camera Hooks renders default 1`] = `
       }
     }
   />
-  <TouchableOpacity
-    activeOpacity={0.2}
+  <ForwardRef
     onPress={[Function]}
     style={
       Object {
@@ -114,9 +107,8 @@ exports[`React Native Camera Hooks renders default 1`] = `
     testID="button"
   >
     back
-  </TouchableOpacity>
-  <TouchableOpacity
-    activeOpacity={0.2}
+  </ForwardRef>
+  <ForwardRef
     onPress={[Function]}
     style={
       Object {
@@ -138,18 +130,8 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
   }
 >
   <Camera
-    androidCameraPermissionOptions={
-      Object {
-        "message": "",
-        "title": "",
-      }
-    }
-    androidRecordAudioPermissionOptions={
-      Object {
-        "message": "",
-        "title": "",
-      }
-    }
+    androidCameraPermissionOptions={null}
+    androidRecordAudioPermissionOptions={null}
     autoFocus="on"
     autoFocusPointOfInterest={
       Object {
@@ -158,13 +140,16 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
       }
     }
     barCodeTypes={Array []}
+    cameraId={null}
     captureAudio={true}
-    exposure={0}
+    exposure={-1}
     faceDetectionClassifications={0}
     faceDetectionLandmarks={0}
     faceDetectionMode={1}
     flashMode={1}
     focusDepth={0}
+    keepAudioSession={false}
+    maxZoom={0}
     mirrorVideo={false}
     notAuthorizedView={
       <View
@@ -220,6 +205,7 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
     }
     type="front"
     useCamera2Api={false}
+    useNativeZoom={false}
     videoStabilizationMode={0}
     zoom={0}
   />
@@ -231,8 +217,7 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
       }
     }
   />
-  <TouchableOpacity
-    activeOpacity={0.2}
+  <ForwardRef
     onPress={[Function]}
     style={
       Object {
@@ -243,9 +228,8 @@ exports[`React Native Camera Hooks renders with flipped side and simple regex ch
     testID="button"
   >
     front
-  </TouchableOpacity>
-  <TouchableOpacity
-    activeOpacity={0.2}
+  </ForwardRef>
+  <ForwardRef
     onPress={[Function]}
     style={
       Object {

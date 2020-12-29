@@ -33,10 +33,10 @@ export const useCamera = (cameraOptions = initialCameraState) => {
   const [whiteBalance, { setWhiteBalance, toggleWB }] = useWhiteBalance(
     mergedCameraOptions.whiteBalance
   );
-  const [autoFocus, toggleAutoFocus] = useAutoFocus(
-    mergedCameraOptions.autoFocus,
-    ['on', 'off']
-  );
+  const [
+    autoFocus,
+    toggleAutoFocus,
+  ] = useAutoFocus(mergedCameraOptions.autoFocus, ['on', 'off']);
   const [
     autoFocusPoint,
     { setAutoFocusPoint, touchToFocus },
@@ -96,8 +96,8 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       zoomOut,
       setFocusDepth,
       toggleCameraState,
-      takePicture: options => _takePicture({ cameraRef }, options),
-      recordVideo: options => _recordVideo({ cameraRef }, options),
+      takePicture: (options) => _takePicture({ cameraRef }, options),
+      recordVideo: (options) => _recordVideo({ cameraRef }, options),
       stopRecording,
       pausePreview,
       isRecording,

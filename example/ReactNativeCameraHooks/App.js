@@ -49,7 +49,7 @@ const initialState = {
   barcodes: [],
 };
 
-const renderFaces = faces => (
+const renderFaces = (faces) => (
   <View style={styles.facesContainer} pointerEvents="none">
     {faces.map(renderFace)}
   </View>
@@ -78,7 +78,7 @@ const renderFace = ({ bounds, faceID, rollAngle, yawAngle }) => (
 );
 
 const renderLandmarksOfFace = (face = {}) => {
-  const renderLandmark = position =>
+  const renderLandmark = (position) =>
     position && (
       <View
         style={[
