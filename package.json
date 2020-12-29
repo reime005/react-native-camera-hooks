@@ -1,6 +1,6 @@
 {
   "name": "react-native-camera-hooks",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "React Native Hooks for the react-native-camera module.",
   "license": "MIT",
   "main": "dist/react-native-camera-hooks.js",
