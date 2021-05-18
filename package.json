@@ -35,11 +35,6 @@
     "test:coverage": "npm run test -- --coverage",
     "test:coverage:deploy": "npm run test:coverage && codecov"
   },
-  "peerDependencies": {
-    "expo-camera": ">= 6.0.0",
-    "react-native": ">= 0.57.0",
-    "react-native-camera": ">= 2.6.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
