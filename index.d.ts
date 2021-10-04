@@ -14,7 +14,7 @@ import { TakePictureOptions, TakePictureResponse } from './src/takePicture';
 
 interface UseCameraState {
   cameraRef: any,
-  type: string | number,
+  type: 'front' | 'back',
   flash: string | number,
   whiteBalance: string | number,
   autoFocus: string | number,
