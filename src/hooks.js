@@ -10,7 +10,7 @@ import { initialCameraState } from './initialState.ts';
 import { useZoom, useCameraState } from './misc';
 import { takePicture as _takePicture } from './takePicture';
 import { recordVideo as _recordVideo } from './recordVideo';
-import { stopRecording } from './stopRecording';
+import { stopRecording as _stopRecording } from './stopRecording';
 import { pausePreview, resumePreview } from './preview';
 import { useAutoFocusTouch } from './autofocusTouch';
 import { useTextRecognition } from './useTextRecognition';
@@ -98,7 +98,7 @@ export const useCamera = (cameraOptions = initialCameraState) => {
       toggleCameraState,
       takePicture: (options) => _takePicture({ cameraRef }, options),
       recordVideo: (options) => _recordVideo({ cameraRef }, options),
-      stopRecording,
+      stopRecording: () => _stopRecording({ cameraRef }),
       pausePreview,
       isRecording,
       resumePreview,
