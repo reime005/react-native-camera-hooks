@@ -88,7 +88,7 @@
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-native": "^0.63.4",
+    "react-native": "^0.64.1",
     "react-native-camera": "^3.1.2",
     "react-test-renderer": "16.8.3",
     "react-testing-library": "^8.0.1",
