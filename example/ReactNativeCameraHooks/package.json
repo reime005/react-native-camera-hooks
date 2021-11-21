@@ -14,7 +14,7 @@
     "@types/react-test-renderer": "^16.9.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
-    "react-native": "0.59.5",
+    "react-native": "0.62.3",
     "react-native-camera": "^2.6.0",
     "react-native-camera-hooks": "^0.1.0",
     "typescript": "^3.7.2"
