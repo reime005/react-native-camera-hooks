@@ -46,4 +46,5 @@ export const takePicture = async (
   ) {
     return cameraRef.current.takePictureAsync(options);
   }
+  return undefined
 };
