@@ -36,4 +36,5 @@ export const recordVideo = async (
   } else if (cameraRef && cameraRef.current && cameraRef.current.recordAsync) {
     return cameraRef.current.recordAsync(options);
   }
+  return undefined
 };
