@@ -32,16 +32,14 @@ export default function App() {
               flex: 1,
               backgroundColor: 'transparent',
               flexDirection: 'row',
-            }}
-          >
+            }}>
             <TouchableOpacity
               style={{
                 flex: 0.1,
                 alignSelf: 'flex-end',
                 alignItems: 'center',
               }}
-              onPress={toggleFacing}
-            >
+              onPress={toggleFacing}>
               <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
                 Flip
               </Text>
@@ -59,8 +57,7 @@ export default function App() {
                 } catch (e) {
                   console.warn(e);
                 }
-              }}
-            >
+              }}>
               <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
                 Record
               </Text>
