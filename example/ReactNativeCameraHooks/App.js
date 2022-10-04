@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useMemo } from 'react';
+import React, {useMemo} from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,12 +9,10 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-// eslint-disable-next-line
-import { RNCamera } from 'react-native-camera';
-// eslint-disable-next-line
+import {RNCamera} from 'react-native-camera';
 import Slider from '@react-native-community/slider';
 
-import { useCamera } from 'react-native-camera-hooks';
+import {useCamera} from 'react-native-camera-hooks';
 
 const landmarkSize = 2;
 
@@ -29,7 +27,7 @@ const initialState = {
   zoom: 0,
   autoFocus: 'on',
   autoFocusPoint: {
-    normalized: { x: 0.5, y: 0.5 }, // normalized values required for autoFocusPointOfInterest
+    normalized: {x: 0.5, y: 0.5}, // normalized values required for autoFocusPointOfInterest
     drawRectPosition: {
       x: Dimensions.get('window').width * 0.5 - 32,
       y: Dimensions.get('window').height * 0.5 - 32,
@@ -49,26 +47,26 @@ const initialState = {
   barcodes: [],
 };
 
-const renderFaces = (faces) => (
+const renderFaces = faces => (
   <View style={styles.facesContainer} pointerEvents="none">
     {faces.map(renderFace)}
   </View>
 );
 
-const renderFace = ({ bounds, faceID, rollAngle, yawAngle }) => (
+const renderFace = ({bounds, faceID, rollAngle, yawAngle}) => (
   <View
     key={faceID}
-    transform={[
-      { perspective: 600 },
-      { rotateZ: `${rollAngle.toFixed(0)}deg` },
-      { rotateY: `${yawAngle.toFixed(0)}deg` },
-    ]}
     style={[
       styles.face,
       {
         ...bounds.size,
         left: bounds.origin.x,
         top: bounds.origin.y,
+        transform: [
+          {perspective: 600},
+          {rotateZ: `${rollAngle.toFixed(0)}deg`},
+          {rotateY: `${yawAngle.toFixed(0)}deg`},
+        ],
       },
     ]}>
     <Text style={styles.faceText}>ID: {faceID}</Text>
@@ -78,7 +76,7 @@ const renderFace = ({ bounds, faceID, rollAngle, yawAngle }) => (
 );
 
 const renderLandmarksOfFace = (face = {}) => {
-  const renderLandmark = (position) =>
+  const renderLandmark = position =>
     position && (
       <View
         style={[
@@ -119,13 +117,10 @@ const renderTextBlocks = (textBlocks = []) => (
   </View>
 );
 
-const renderTextBlock = ({ bounds = {}, value }) => (
+const renderTextBlock = ({bounds = {}, value}) => (
   <React.Fragment key={value + bounds.origin.x}>
     <Text
-      style={[
-        styles.textBlock,
-        { left: bounds.origin.x, top: bounds.origin.y },
-      ]}>
+      style={[styles.textBlock, {left: bounds.origin.x, top: bounds.origin.y}]}>
       {value}
     </Text>
     <View
@@ -147,7 +142,7 @@ const renderBarcodes = (barcodes = []) => (
   </View>
 );
 
-const renderBarcode = ({ bounds = {}, data, type }) => (
+const renderBarcode = ({bounds = {}, data, type}) => (
   <React.Fragment key={data + bounds.origin.x}>
     <View
       style={[
@@ -202,15 +197,15 @@ export const CameraScreen = () => {
   ] = useCamera(initialState);
 
   //TODO: [mr] useEffect?
-  const canDetectFaces = useMemo(() => cameraState['canDetectFaces'], [
-    cameraState,
-  ]);
-  const canDetectText = useMemo(() => cameraState['canDetectText'], [
-    cameraState,
-  ]);
-  const canDetectBarcode = useMemo(() => cameraState['canDetectBarcode'], [
-    cameraState,
-  ]);
+  const canDetectFaces = useMemo(
+    () => cameraState.canDetectFaces,
+    [cameraState],
+  );
+  const canDetectText = useMemo(() => cameraState.canDetectText, [cameraState]);
+  const canDetectBarcode = useMemo(
+    () => cameraState.canDetectBarcode,
+    [cameraState],
+  );
 
   return (
     <View style={styles.container}>
@@ -245,7 +240,7 @@ export const CameraScreen = () => {
         <View style={StyleSheet.absoluteFill}>
           <View style={[styles.autoFocusBox, drawFocusRingPosition]} />
           <TouchableWithoutFeedback onPress={touchToFocus}>
-            <View style={{ flex: 1 }} />
+            <View style={{flex: 1}} />
           </TouchableWithoutFeedback>
         </View>
         <View
@@ -305,7 +300,7 @@ export const CameraScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ bottom: 0 }}>
+        <View style={{bottom: 0}}>
           <View
             style={{
               height: 20,
@@ -314,7 +309,7 @@ export const CameraScreen = () => {
               alignSelf: 'flex-end',
             }}>
             <Slider
-              style={{ width: 150, marginTop: 15, alignSelf: 'flex-end' }}
+              style={{width: 150, marginTop: 15, alignSelf: 'flex-end'}}
               onValueChange={(value = 0) => setFocusDepth(value)}
               step={0.1}
               disabled={autoFocus === 'on'}
@@ -369,17 +364,17 @@ export const CameraScreen = () => {
               alignSelf: 'flex-end',
             }}>
             <TouchableOpacity
-              style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}
+              style={[styles.flipButton, {flex: 0.1, alignSelf: 'flex-end'}]}
               onPress={zoomIn}>
               <Text style={styles.flipText}> + </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}
+              style={[styles.flipButton, {flex: 0.1, alignSelf: 'flex-end'}]}
               onPress={zoomOut}>
               <Text style={styles.flipText}> - </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.flipButton, { flex: 0.25, alignSelf: 'flex-end' }]}
+              style={[styles.flipButton, {flex: 0.25, alignSelf: 'flex-end'}]}
               onPress={toggleAutoFocus}>
               <Text style={styles.flipText}> AF : {autoFocus} </Text>
             </TouchableOpacity>
@@ -387,7 +382,7 @@ export const CameraScreen = () => {
               style={[
                 styles.flipButton,
                 styles.picButton,
-                { flex: 0.3, alignSelf: 'flex-end' },
+                {flex: 0.3, alignSelf: 'flex-end'},
               ]}
               onPress={async () => {
                 try {

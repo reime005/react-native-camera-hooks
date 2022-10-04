@@ -28,7 +28,7 @@
     "build": "rollup -c",
     "clean": "rimraf ./dist && rimraf ./coverage",
     "lint": "yarn lint:ci --fix",
-    "lint:ci": "eslint example src",
+    "lint:ci": "eslint src",
     "precommit": "lint-staged && npm run test",
     "prepublish": "npm run build",
     "test": "jest",
